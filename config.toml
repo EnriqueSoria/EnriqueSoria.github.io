@@ -1,0 +1,28 @@
+baseURL = 'http://enriquesoria.github.io/'
+languageCode = 'en-us'
+title = 'Enrique Soria'
+
+theme = "m10c"
+paginate = 4
+
+[params]
+author = "Enrique Soria"
+description = "Software developer"
+avatar = "https://avatars.githubusercontent.com/u/7394684?v=4"
+
+[[params.social]]
+  icon = "github"
+  name = "My Github"
+  url = "https://github.com/EnriqueSoria"
+
+[[params.social]]
+  name = "twitter"
+  icon = "twitter"
+  url = "https://twitter.com/esoria_dev/"
+
+[[menu.main]]
+  identifier = "tags"
+  name = "Tags"
+  url = "/tags/"
+  
+
