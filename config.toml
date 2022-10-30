@@ -1,5 +1,4 @@
-baseURL = 'https://enriquesoria.github.io/'
-baseurl = 'https://enriquesoria.github.io/'
+baseURL = 'https://enriquesoria.github.io'
 languageCode = 'en-us'
 title = 'Enrique Soria'
 
