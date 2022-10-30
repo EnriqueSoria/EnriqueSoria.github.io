@@ -20,6 +20,12 @@ avatar = "https://avatars.githubusercontent.com/u/7394684?v=4"
   icon = "twitter"
   url = "https://twitter.com/esoria_dev/"
 
+
+[[params.social]]
+  name = "linkedin"
+  icon = "linkedin"
+  url = "https://www.linkedin.com/in/enriquesoriamagraner/"
+
 [[menu.main]]
   identifier = "tags"
   name = "Tags"
