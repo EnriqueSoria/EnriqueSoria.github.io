@@ -9,41 +9,40 @@ tags: ['django', 'env']
 
 # Create mantainable env.sample using [django-environ](https://github.com/joke2k/django-environ)
 
-## Put every env var with its configuration when instantiating `Env` object
-```python
-from environ import Env
 
-env = Env(
+
+ - Put every env var with its configuration in a separate python file named `environment_defaults.py`
+```python
+ENV_DEFAULTS = dict(
     VARIABLE_WITH_DEFAULT_VALUE=(str, "default value"),
     VARIABLE_WITHOUT_DEFAULT_VALUE=str,
 )
+```
 
+ - Instantiate `Env` with `ENV_DEFAULTS` on your `settings.py`
+```python
+from environ import Env
+from environment_defaults import ENV_DEFAULTS
+
+env = Env(**ENV_DEFAULTS)
+```
+
+ - And ensure you are accessing it using `env("VAR_NAME")` instead of `env.str("VAR_NAME")`
+```python
 value = env("VARIABLE_WITH_DEFAULT_VALUE")
 value = env("VARIABLE_WITHOUT_DEFAULT_VALUE")
 ```
 
-## Use this script that uses the `Env` instance to generate an `env.sample`
+- Use this script that uses the `Env` instance to generate an `env.sample`
 ```python
 from pathlib import Path
 
 import click
-import sys
-from environ import Env
 
 
-def get_env_config() -> Env:
-    # Add env_location to python path so it can find it.  
-    env_location = Path("app/your_app/")  
-    sys.path.append(str(env_location.absolute()))
-    
-    # Import env instance
-    from your_app import settings
-    return settings.env
-
-
-def get_env_sample_text(env: Env, write_defaults: bool = False) -> str:
+def get_env_sample_text(values: dict, write_defaults: bool = False) -> str:
     text = ""
-    for env_name, env_config in env.scheme.items():
+    for env_name, env_config in values.items():
         has_default: bool = isinstance(env_config, tuple) and len(env_config) == 2
 
         if has_default:
@@ -58,8 +57,15 @@ def get_env_sample_text(env: Env, write_defaults: bool = False) -> str:
 
 @click.command()
 @click.option(
-    "--file",
-    "-f",
+    "--environment_defaults_path",
+    "-p",
+    default="app/settings/",
+    help="Path where environment_defaults.py is located",
+    show_default=True,
+)
+@click.option(
+    "--output",
+    "-o",
     default="./env.sample",
     help="Path of the sample env file",
     show_default=True,
@@ -72,12 +78,20 @@ def get_env_sample_text(env: Env, write_defaults: bool = False) -> str:
     help="Write default values to sample env file",
     show_default=True,
 )
-def generate_env_sample(*, file: str, defaults: bool):
-    env = get_env_config()
+def generate_env_sample(*, environment_defaults_path: str, output: str, defaults: bool):
+    env_location = Path(environment_defaults_path)
+    assert env_location.exists()
+    assert (env_location / "environment_defaults.py").exists()
+
+    # Make ENV_DEFAULTS importable
+    import sys
+
+    sys.path.append(str(env_location.absolute()))
+    from environment_defaults import ENV_DEFAULTS
 
     # Write env sample
-    text = get_env_sample_text(env, write_defaults=defaults)
-    with open(file, "w") as f:
+    text = get_env_sample_text(ENV_DEFAULTS, write_defaults=defaults)
+    with open(output, "w") as f:
         f.write(text)
 
 
@@ -86,7 +100,7 @@ if __name__ == "__main__":
 
 ```
 
-## Add it to your pre-commit so it never gets outdated
+ - Add it to your pre-commit so it never gets outdated
 ```yaml
 repos:
 - repo: local
@@ -99,5 +113,5 @@ repos:
       pass_filenames: false
 ```
 
-## Enjoy!
+- Enjoy!
 
