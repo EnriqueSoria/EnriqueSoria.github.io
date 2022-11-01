@@ -10,9 +10,9 @@
 <link rel=stylesheet href=https://enriquesoria.github.io/css/main.min.0fb49e70a30412f97ddfc418e18fefef1d9fcdebe45f634dbbba768b00fe1eec.css>
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="Create mantainable env.sample using django-environ">
-<meta name=twitter:description content="Create mantainable env.sample using django-environ Put every env var with its configuration when instantiating Env object from environ import Env env = Env( VARIABLE_WITH_DEFAULT_VALUE=(str, &#34;default value&#34;), VARIABLE_WITHOUT_DEFAULT_VALUE=str, ) value = env(&#34;VARIABLE_WITH_DEFAULT_VALUE&#34;) value = env(&#34;VARIABLE_WITHOUT_DEFAULT_VALUE&#34;) Use this script that uses the Env instance to generate an env.sample from pathlib import Path import click import sys from environ import Env def get_env_config() -> Env: # Add env_location to python path so it can find it.">
+<meta name=twitter:description content="Create mantainable env.sample using django-environ  Put every env var with its configuration in a separate python file named environment_defaults.py  ENV_DEFAULTS = dict( VARIABLE_WITH_DEFAULT_VALUE=(str, &#34;default value&#34;), VARIABLE_WITHOUT_DEFAULT_VALUE=str, )  Instantiate Env with ENV_DEFAULTS on your settings.py  from environ import Env from environment_defaults import ENV_DEFAULTS env = Env(**ENV_DEFAULTS)  And ensure you are accessing it using env(&#34;VAR_NAME&#34;) instead of env.str(&#34;VAR_NAME&#34;)  value = env(&#34;VARIABLE_WITH_DEFAULT_VALUE&#34;) value = env(&#34;VARIABLE_WITHOUT_DEFAULT_VALUE&#34;)  Use this script that uses the Env instance to generate an env.">
 <meta property="og:title" content="Create mantainable env.sample using django-environ">
-<meta property="og:description" content="Create mantainable env.sample using django-environ Put every env var with its configuration when instantiating Env object from environ import Env env = Env( VARIABLE_WITH_DEFAULT_VALUE=(str, &#34;default value&#34;), VARIABLE_WITHOUT_DEFAULT_VALUE=str, ) value = env(&#34;VARIABLE_WITH_DEFAULT_VALUE&#34;) value = env(&#34;VARIABLE_WITHOUT_DEFAULT_VALUE&#34;) Use this script that uses the Env instance to generate an env.sample from pathlib import Path import click import sys from environ import Env def get_env_config() -> Env: # Add env_location to python path so it can find it.">
+<meta property="og:description" content="Create mantainable env.sample using django-environ  Put every env var with its configuration in a separate python file named environment_defaults.py  ENV_DEFAULTS = dict( VARIABLE_WITH_DEFAULT_VALUE=(str, &#34;default value&#34;), VARIABLE_WITHOUT_DEFAULT_VALUE=str, )  Instantiate Env with ENV_DEFAULTS on your settings.py  from environ import Env from environment_defaults import ENV_DEFAULTS env = Env(**ENV_DEFAULTS)  And ensure you are accessing it using env(&#34;VAR_NAME&#34;) instead of env.str(&#34;VAR_NAME&#34;)  value = env(&#34;VARIABLE_WITH_DEFAULT_VALUE&#34;) value = env(&#34;VARIABLE_WITHOUT_DEFAULT_VALUE&#34;)  Use this script that uses the Env instance to generate an env.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://enriquesoria.github.io/mantainable-env-sample/"><meta property="article:section" content>
 <meta property="article:published_time" content="2022-09-20T08:00:00+02:00">
@@ -54,37 +54,36 @@ Sep 20, 2022
 </header>
 <div class=post-content>
 <h1 id=create-mantainable-envsample-using-django-environhttpsgithubcomjoke2kdjango-environ>Create mantainable env.sample using <a href=https://github.com/joke2k/django-environ>django-environ</a></h1>
-<h2 id=put-every-env-var-with-its-configuration-when-instantiating-env-object>Put every env var with its configuration when instantiating <code>Env</code> object</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> environ <span style=color:#f92672>import</span> Env
-
-env <span style=color:#f92672>=</span> Env(
+<ul>
+<li>Put every env var with its configuration in a separate python file named <code>environment_defaults.py</code></li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>ENV_DEFAULTS <span style=color:#f92672>=</span> dict(
     VARIABLE_WITH_DEFAULT_VALUE<span style=color:#f92672>=</span>(str, <span style=color:#e6db74>&#34;default value&#34;</span>),
     VARIABLE_WITHOUT_DEFAULT_VALUE<span style=color:#f92672>=</span>str,
 )
+</code></pre></div><ul>
+<li>Instantiate <code>Env</code> with <code>ENV_DEFAULTS</code> on your <code>settings.py</code></li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> environ <span style=color:#f92672>import</span> Env
+<span style=color:#f92672>from</span> environment_defaults <span style=color:#f92672>import</span> ENV_DEFAULTS
 
-value <span style=color:#f92672>=</span> env(<span style=color:#e6db74>&#34;VARIABLE_WITH_DEFAULT_VALUE&#34;</span>)
+env <span style=color:#f92672>=</span> Env(<span style=color:#f92672>**</span>ENV_DEFAULTS)
+</code></pre></div><ul>
+<li>And ensure you are accessing it using <code>env("VAR_NAME")</code> instead of <code>env.str("VAR_NAME")</code></li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>value <span style=color:#f92672>=</span> env(<span style=color:#e6db74>&#34;VARIABLE_WITH_DEFAULT_VALUE&#34;</span>)
 value <span style=color:#f92672>=</span> env(<span style=color:#e6db74>&#34;VARIABLE_WITHOUT_DEFAULT_VALUE&#34;</span>)
-</code></pre></div><h2 id=use-this-script-that-uses-the-env-instance-to-generate-an-envsample>Use this script that uses the <code>Env</code> instance to generate an <code>env.sample</code></h2>
+</code></pre></div><ul>
+<li>Use this script that uses the <code>Env</code> instance to generate an <code>env.sample</code></li>
+</ul>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> pathlib <span style=color:#f92672>import</span> Path
 
 <span style=color:#f92672>import</span> click
-<span style=color:#f92672>import</span> sys
-<span style=color:#f92672>from</span> environ <span style=color:#f92672>import</span> Env
 
 
-<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>get_env_config</span>() <span style=color:#f92672>-&gt;</span> Env:
-    <span style=color:#75715e># Add env_location to python path so it can find it.  </span>
-    env_location <span style=color:#f92672>=</span> Path(<span style=color:#e6db74>&#34;app/your_app/&#34;</span>)  
-    sys<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>append(str(env_location<span style=color:#f92672>.</span>absolute()))
-    
-    <span style=color:#75715e># Import env instance</span>
-    <span style=color:#f92672>from</span> your_app <span style=color:#f92672>import</span> settings
-    <span style=color:#66d9ef>return</span> settings<span style=color:#f92672>.</span>env
-
-
-<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>get_env_sample_text</span>(env: Env, write_defaults: bool <span style=color:#f92672>=</span> <span style=color:#66d9ef>False</span>) <span style=color:#f92672>-&gt;</span> str:
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>get_env_sample_text</span>(values: dict, write_defaults: bool <span style=color:#f92672>=</span> <span style=color:#66d9ef>False</span>) <span style=color:#f92672>-&gt;</span> str:
     text <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;</span>
-    <span style=color:#66d9ef>for</span> env_name, env_config <span style=color:#f92672>in</span> env<span style=color:#f92672>.</span>scheme<span style=color:#f92672>.</span>items():
+    <span style=color:#66d9ef>for</span> env_name, env_config <span style=color:#f92672>in</span> values<span style=color:#f92672>.</span>items():
         has_default: bool <span style=color:#f92672>=</span> isinstance(env_config, tuple) <span style=color:#f92672>and</span> len(env_config) <span style=color:#f92672>==</span> <span style=color:#ae81ff>2</span>
 
         <span style=color:#66d9ef>if</span> has_default:
@@ -99,8 +98,15 @@ value <span style=color:#f92672>=</span> env(<span style=color:#e6db74>&#34;VARI
 
 <span style=color:#a6e22e>@click</span><span style=color:#f92672>.</span>command()
 <span style=color:#a6e22e>@click</span><span style=color:#f92672>.</span>option(
-    <span style=color:#e6db74>&#34;--file&#34;</span>,
-    <span style=color:#e6db74>&#34;-f&#34;</span>,
+    <span style=color:#e6db74>&#34;--environment_defaults_path&#34;</span>,
+    <span style=color:#e6db74>&#34;-p&#34;</span>,
+    default<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;app/settings/&#34;</span>,
+    help<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Path where environment_defaults.py is located&#34;</span>,
+    show_default<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>,
+)
+<span style=color:#a6e22e>@click</span><span style=color:#f92672>.</span>option(
+    <span style=color:#e6db74>&#34;--output&#34;</span>,
+    <span style=color:#e6db74>&#34;-o&#34;</span>,
     default<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;./env.sample&#34;</span>,
     help<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Path of the sample env file&#34;</span>,
     show_default<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>,
@@ -113,19 +119,29 @@ value <span style=color:#f92672>=</span> env(<span style=color:#e6db74>&#34;VARI
     help<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Write default values to sample env file&#34;</span>,
     show_default<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>,
 )
-<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>generate_env_sample</span>(<span style=color:#f92672>*</span>, file: str, defaults: bool):
-    env <span style=color:#f92672>=</span> get_env_config()
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>generate_env_sample</span>(<span style=color:#f92672>*</span>, environment_defaults_path: str, output: str, defaults: bool):
+    env_location <span style=color:#f92672>=</span> Path(environment_defaults_path)
+    <span style=color:#66d9ef>assert</span> env_location<span style=color:#f92672>.</span>exists()
+    <span style=color:#66d9ef>assert</span> (env_location <span style=color:#f92672>/</span> <span style=color:#e6db74>&#34;environment_defaults.py&#34;</span>)<span style=color:#f92672>.</span>exists()
+
+    <span style=color:#75715e># Make ENV_DEFAULTS importable</span>
+    <span style=color:#f92672>import</span> sys
+
+    sys<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>append(str(env_location<span style=color:#f92672>.</span>absolute()))
+    <span style=color:#f92672>from</span> environment_defaults <span style=color:#f92672>import</span> ENV_DEFAULTS
 
     <span style=color:#75715e># Write env sample</span>
-    text <span style=color:#f92672>=</span> get_env_sample_text(env, write_defaults<span style=color:#f92672>=</span>defaults)
-    <span style=color:#66d9ef>with</span> open(file, <span style=color:#e6db74>&#34;w&#34;</span>) <span style=color:#66d9ef>as</span> f:
+    text <span style=color:#f92672>=</span> get_env_sample_text(ENV_DEFAULTS, write_defaults<span style=color:#f92672>=</span>defaults)
+    <span style=color:#66d9ef>with</span> open(output, <span style=color:#e6db74>&#34;w&#34;</span>) <span style=color:#66d9ef>as</span> f:
         f<span style=color:#f92672>.</span>write(text)
 
 
 <span style=color:#66d9ef>if</span> __name__ <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;__main__&#34;</span>:
     generate_env_sample()
 
-</code></pre></div><h2 id=add-it-to-your-pre-commit-so-it-never-gets-outdated>Add it to your pre-commit so it never gets outdated</h2>
+</code></pre></div><ul>
+<li>Add it to your pre-commit so it never gets outdated</li>
+</ul>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>repos</span>:
 - <span style=color:#f92672>repo</span>: <span style=color:#ae81ff>local</span>
   <span style=color:#f92672>hooks</span>:
@@ -135,7 +151,9 @@ value <span style=color:#f92672>=</span> env(<span style=color:#e6db74>&#34;VARI
       <span style=color:#f92672>language</span>: <span style=color:#ae81ff>system</span>
       <span style=color:#f92672>always_run</span>: <span style=color:#66d9ef>true</span>
       <span style=color:#f92672>pass_filenames</span>: <span style=color:#66d9ef>false</span>
-</code></pre></div><h2 id=enjoy>Enjoy!</h2>
+</code></pre></div><ul>
+<li>Enjoy!</li>
+</ul>
 </div>
 <div class=post-footer>
 </div>
