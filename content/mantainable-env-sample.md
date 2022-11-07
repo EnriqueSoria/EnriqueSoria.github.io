@@ -6,8 +6,6 @@ layout: 'single'
 tags: ['python', 'django', 'env', 'english']
 ---
 
-# Create mantainable env.sample using [django-environ](https://github.com/joke2k/django-environ)
-
 Keeping your env.sample is a hard task, that's why I created a way to have it updated automatically: 
 
 [![EnriqueSoria/update-django-environ-sample - GitHub](https://gh-card.dev/repos/EnriqueSoria/update-django-environ-sample.svg)](https://github.com/EnriqueSoria/update-django-environ-sample)
