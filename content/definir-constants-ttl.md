@@ -44,7 +44,7 @@ O, refinant-ho un poc més podem deixar la multiplicació per a que s'entenga en
 ttl = 24 * 60 * 60  # 24h in seconds
 ```
 
-Però esta solució té un problema: cada volta que actualitzem el valor de la variable ens hem de recordar de canviar també el comentari. Pareix una obvietat però es fàcil que amb les preses sen's oblide fer-ho. I ara tenim una cosa molt perillosa: un comentari explicant malament el valor d'una variable.
+Però esta solució té un problema: cada volta que actualitzem el valor de la variable ens hem de recordar de canviar també el comentari. Pareix una obvietat, però es fàcil que amb les preses sen's oblide fer-ho. I ara tenim una cosa molt perillosa: un comentari explicant malament el valor d'una variable.
 
 
 ### Constants amb noms explicatius
@@ -60,9 +60,22 @@ ttl = 1 * DAYS_IN_SECONDS
 
 Esta solució es, en general, la que aplicaria a dia de hui per a evitar escriure números màgics. Amb una excepció.
 
+
+### timedelta
 Si estem treballant concretament amb unitats de temps expresades en segons. En este cas la solució ideal pense que es la següent:
 
 ```python
 from datetime import timedelta
 ttl = timedelta(hours=24).total_seconds()
+```
+
+L'objecte [`datetime.timedelta`](https://docs.python.org/3/library/datetime.html#timedelta-objects) de la llibreria estàndar de Python ens permet expresar duracions temporals mitjançant d'una forma llegible. I posteriorment convertir esta duració a segons d'una forma fàcil:
+
+```python
+>>> from datetime import timedelta
+>>> one_day = timedelta(days=1)
+>>> one_day.total_seconds()
+86400.0
+>>> print(timedelta(minutes=1, seconds=30).total_seconds())
+90.0
 ```
