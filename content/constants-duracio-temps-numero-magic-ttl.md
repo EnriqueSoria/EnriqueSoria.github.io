@@ -1,5 +1,5 @@
 ---                                                                             
-title: 'Definint constants tipus TTL correctament'
+title: 'Representar duracions temporals sense números màgics'
 date: 2022-11-07T19:42:00+01:00
 type: 'post'
 layout: 'single'
