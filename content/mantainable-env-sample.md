@@ -3,7 +3,7 @@ title: 'Create mantainable env.sample using django-environ'
 date: 2022-09-20T08:00:00+02:00
 type: 'post'
 layout: 'single'
-tags: ['django', 'env']
+tags: ['python', 'django', 'env', 'english']
 ---
 
 # Create mantainable env.sample using [django-environ](https://github.com/joke2k/django-environ)
