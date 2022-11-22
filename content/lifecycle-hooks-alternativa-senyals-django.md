@@ -7,8 +7,9 @@ tags: ['django', 'lifecycle-hooks', 'receivers', 'signals']
 draft: true
 ---
 
-Arriba un moment en teua la vida com a *django developer* en la que descobreixes les [signals](https://docs.djangoproject.com/en/4.1/topics/signals/), i de repent sents que el món seria un lloc millor si hi hagueren més senyals
+Arriba un moment en teua la vida com a *django developer* en la que descobreixes les [signals](https://docs.djangoproject.com/en/4.1/topics/signals/), i notes de repent que el món seria un lloc millor si hi hagueren més senyals. Les senyals són el camí a seguir.
 
+![gif this is the way the mandalorian](https://media.tenor.com/kwNTRoTGO18AAAAd/this-is-the-way-mandalorian.gif)
 ![gif simpsons arcoiris felicitat](https://media.tenor.com/zRJacV32WpYAAAAd/arcoiris-felicidad.gif)
 
 Però *no es oro todo lo que reluce*.
