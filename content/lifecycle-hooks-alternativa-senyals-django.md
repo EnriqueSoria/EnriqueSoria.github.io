@@ -7,6 +7,23 @@ tags: ['django', 'lifecycle-hooks', 'receivers', 'signals']
 draft: true
 ---
 
+Arriba un moment en teua la vida com a *django developer* en la que descobreixes les [signals](https://docs.djangoproject.com/en/4.1/topics/signals/), i de repent sents que el món seria un lloc millor si hi hagueren més senyals
+
+![gif simpsons arcoiris felicitat](https://media.tenor.com/zRJacV32WpYAAAAd/arcoiris-felicidad.gif)
+
+Però *no es oro todo lo que reluce*.
+
+## Les senyals són complicades
+ - S'han de registrar al App.ready()
+ - Són difícils de localitzar (si no s'organitzen bé)
+ - Separen la lògica del model al que pertany
+ - No s'executen sempre: tests, queryset.update()
+
+
+
+---
+
+
 Gran part de les senyals que es gasten serveixen per a fer accions abans o després de guardar: crear models relacionats, calcular coses...
 creencia false de que s'executen en segon plano
 
