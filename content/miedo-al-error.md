@@ -19,7 +19,6 @@ for pull_request in get_pull_requests(os.environ.get("REPO_NAME")):
 Vamos a ver cómo lo podríamos reescribir sin tener miedo a fallar:
 ```python
 import os
-from github import UnknownObjectException
 
 # El nombre del repositorio es obligatorio para que nuestro programa funcione, 
 #  así que vamos a obtenerlo tan pronto como sea posible.
