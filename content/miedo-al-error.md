@@ -38,6 +38,8 @@ for pull_request in get_pull_requests(REPO_NAME):
     print(pull_request.title)
  ```
 
+## keywords
+ - fail fast
 
 ## bibliography
  - https://luzkan.github.io/smells/afraid-to-fail
