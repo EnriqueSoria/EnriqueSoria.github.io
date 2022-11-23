@@ -1,10 +1,9 @@
-
-Let's create a little script to retrieve a list of pull requests for a given repository:
+Vamos a crear un pequeño script para obtener las pull requests de nuestro repositorio:
 
 ```python
 import os
 
-# Retrieve github token from env, useful if our repo is private
+# Obtenemos el token de github, por si nuestro repositorio es privado
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN")
 REPO_NAME = os.environ.get("REPO_NAME")
 
@@ -15,9 +14,9 @@ def get_pull_requests(repo_name):
     try:
         return github.get_repo(repo_name).get_pulls()
     except Exception:
-        # shit happens, let's catch exceptions (just in case)
-        return []
- 
+        # shit happens, devolvemos None por si falla
+        return None
+
 for pull_request in get_pull_requests(REPO_NAME)):
     print(pull_request.title)
  ```
