@@ -11,7 +11,7 @@ def get_pull_requests(repo_name):
         # shit happens, devolvemos None por si falla
         return None
 
-for pull_request in get_pull_requests(os.environ.get("REPO_NAME"))):
+for pull_request in get_pull_requests(os.environ.get("REPO_NAME")):
     print(pull_request.title)
  ```
 
