@@ -1,26 +1,26 @@
 
+Let's create a little script to retrieve a list of pull requests for a given repository:
+
 ```python
-# stores.py
-DEFAULT_STORE_CODE = "main_store"
+import os
 
-def get_current_store() -> Store | None:
-    store = Store.objects.filter(...).first()
-    if store:
-        return store
-    return Store.objects.filter(code=DEFAULT_STORE_CODE).first()
-```
+# Retrieve github token from env, useful if our repo is private
+GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN")
+REPO_NAME = os.environ.get("REPO_NAME")
 
-```python 
-# tax_rates.py
-DEFAULT_TAX_RATE = Decimal("21.00")
+github = Github(GITHUB_TOKEN)
 
-def get_vat_rate(product: Product) -> Decimal:
-    store = get_current_store()
-    if store and store.tax_rate:
-        return store.tax_rate
-    return DEFAULT_TAX_RATE
-```
 
+def get_pull_requests(repo_name):
+    try:
+        return github.get_repo(repo_name).get_pulls()
+    except Exception:
+        # shit happens, let's catch exceptions (just in case)
+        return []
+ 
+for pull_request in get_pull_requests(REPO_NAME)):
+    print(pull_request.title)
+ ```
 
 
 
