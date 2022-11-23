@@ -21,8 +21,8 @@ Vamos a ver cómo lo podríamos reescribir sin tener miedo a fallar:
 import os
 from github import UnknownObjectException
 
-# El nombre del repositorio es obligatorio para que nuestro programa funcione, así que
-#  vamos a obtenerlo tan pronto como sea posible.
+# El nombre del repositorio es obligatorio para que nuestro programa funcione, 
+#  así que vamos a obtenerlo tan pronto como sea posible.
 # Además, en vez de usar dict.get(), vamos a acceder a la variable directamente
 REPO_NAME = os.environ["REPO_NAME"]
 
