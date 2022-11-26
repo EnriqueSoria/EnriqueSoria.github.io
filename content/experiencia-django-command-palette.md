@@ -1,5 +1,5 @@
 ---                                                                             
-title: 'Una gran experiència amb l\'open source'
+title: "Una gran experiència amb l'open source"
 date: 2022-11-26T13:20:00+01:00
 type: 'post'
 layout: 'single'
