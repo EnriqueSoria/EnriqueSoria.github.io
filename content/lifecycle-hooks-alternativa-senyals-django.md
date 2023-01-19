@@ -40,6 +40,8 @@ es podria sobreescriure el save... però millor amb la llibreria django-lifecycl
 
 ## que no soluciona django-lifecycle?
  - queryset.update()
+ - integrar-se amb llibreries externes
+ - en general: senyals no relacionades amb el `.save()` o `.delete()` d'un model
 
 
 ## keywords
