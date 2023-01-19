@@ -14,6 +14,84 @@ def get_pull_requests(repo_name):
 for pull_request in get_pull_requests(os.environ.get("REPO_NAME")):
     print(pull_request.title)
  ```
+ 
+ - Vamos a probarlo:
+```python
+>>> for pull_request in get_pull_requests(os.environ.get("REPO_NAME")):
+...    print(pull_request.title)
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/idlelib/run.py", line 578, in runcode
+    exec(code, self.locals)
+  File "<pyshell#8>", line 1, in <module>
+TypeError: 'NoneType' object is not iterable
+>>>
+```
+
+Vaya, la hemos cagado. ¡Vamos a solucionarlo!
+
+---
+
+```python
+import os
+
+def get_pull_requests(repo_name):
+    try:
+        github = Github(os.environ.get("GITHUB_TOKEN"))
+        return github.get_repo(repo_name).get_pulls()
+    except Exception:
+        # shit happens, devolvemos array vacío por si falla
+        return []
+ ```
+
+- Vamos a probarlo:
+
+```python
+>>> for pull_request in get_pull_requests(os.environ.get("REPO_NAME")):
+...    print(pull_request.title)
+
+>>>
+```
+
+Vaya... algo pasa aquí, quizás no hemos seteado `REPO_NAME`?
+```python
+>>> for pull_request in get_pull_requests(os.environ.get("REPO_NAME")):
+...     print(pull_request.title)
+... 
+...     
+>>>
+```
+
+Sigue sin ir... qué será? Vamos a quitar el `try...except` a ver qué pasa:
+
+```python
+>>> def get_pull_requests(repo_name):
+...     github = Github(os.environ.get("GITHUB_TOKEN"))
+...     return github.get_repo(repo_name).get_pulls()
+... 
+>>> for pull_request in get_pull_requests(os.environ.get("REPO_NAME")):
+...     print(pull_request.title)
+... 
+...     
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/idlelib/run.py", line 578, in runcode
+    exec(code, self.locals)
+  File "<pyshell#20>", line 1, in <module>
+  File "<pyshell#18>", line 2, in get_pull_requests
+NameError: name 'Github' is not defined. Did you mean: 'github'?
+```
+
+Vaya, no había importado Github! Es más, ni siquiera lo tengo instalado!
+
+```python
+>>> from github import Github
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/idlelib/run.py", line 578, in runcode
+    exec(code, self.locals)
+  File "<pyshell#21>", line 1, in <module>
+ModuleNotFoundError: No module named 'github'
+```
+    
+---
 
 
 Vamos a ver cómo lo podríamos reescribir sin tener miedo a fallar:
