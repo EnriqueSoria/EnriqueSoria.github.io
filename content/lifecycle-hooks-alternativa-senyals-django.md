@@ -20,6 +20,7 @@ Però *no es oro todo lo que reluce*.
  - Separen la lògica del model al que pertany
  - No s'executen sempre: tests, queryset.update()
 
+![imatge](https://user-images.githubusercontent.com/7394684/216316597-3415ca74-4b07-46ee-9dbf-37a87bf7567d.png)
 
 
 ---
