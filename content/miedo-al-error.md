@@ -8,7 +8,7 @@ def get_pull_requests(repo_name):
         github = Github(os.environ.get("GITHUB_TOKEN"))
         return github.get_repo(repo_name).get_pulls()
     except Exception:
-        # shit happens, devolvemos None por si falla
+        # shit happens, devolvemos array vacío por si falla
         return None
 
 for pull_request in get_pull_requests(os.environ.get("REPO_NAME")):
@@ -16,35 +16,6 @@ for pull_request in get_pull_requests(os.environ.get("REPO_NAME")):
  ```
  
  - Vamos a probarlo:
-```python
->>> for pull_request in get_pull_requests(os.environ.get("REPO_NAME")):
-...    print(pull_request.title)
-Traceback (most recent call last):
-  File "/usr/lib/python3.10/idlelib/run.py", line 578, in runcode
-    exec(code, self.locals)
-  File "<pyshell#8>", line 1, in <module>
-TypeError: 'NoneType' object is not iterable
->>>
-```
-
-Vaya, la hemos cagado. ¡Vamos a solucionarlo!
-
----
-
-```python
-import os
-
-def get_pull_requests(repo_name):
-    try:
-        github = Github(os.environ.get("GITHUB_TOKEN"))
-        return github.get_repo(repo_name).get_pulls()
-    except Exception:
-        # shit happens, devolvemos array vacío por si falla
-        return []
- ```
-
-- Vamos a probarlo:
-
 ```python
 >>> for pull_request in get_pull_requests(os.environ.get("REPO_NAME")):
 ...    print(pull_request.title)
@@ -97,6 +68,9 @@ ModuleNotFoundError: No module named 'github'
 Vamos a ver cómo lo podríamos reescribir sin tener miedo a fallar:
 ```python
 import os
+
+from github import Github
+
 
 # El nombre del repositorio es obligatorio para que nuestro programa funcione, 
 #  así que vamos a obtenerlo tan pronto como sea posible.
