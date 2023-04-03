@@ -8,6 +8,9 @@ draft: false
 ---
 
 
+{{< gist EnriqueSoria eaffaae1687db592e3f9f60baed3bd11 >}}
+
+
 Suppose we have a model Product that has a ManyToMany relationship with a Category model. The Category model has a field name which we want to include in the serialized representation of the Product model's categories.
 
 ```python
