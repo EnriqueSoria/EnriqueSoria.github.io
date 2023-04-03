@@ -1,6 +1,6 @@
 ---                                                                             
 title: 'Making child serializer "Source" attributes work with ListSerializer'
-date: 2022-11-07T19:42:00+01:00
+date: 2023-04-03T18:42:00+01:00
 type: 'post'
 layout: 'single'
 tags: ['drf', 'django', 'python', 'english']
