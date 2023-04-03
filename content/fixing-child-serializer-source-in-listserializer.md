@@ -17,7 +17,7 @@ Sarah looked for a solution and came across a blog post that described a custom 
 
 Sarah decided to use `ChildSourceListSerializer` in her implementation, and it worked perfectly. Now, her endpoint returns a list of movies with their associated genres as a list of strings, just as she had wanted.
 
-Sarah was happy that she had found a solution to her problem and decided to share her experience with the Django community. She wrote a blog post about her use of `ChildSourceListSerializer` and how it had helped her solve her serialization problem. The post became very popular and many developers started using ChildSourceListSerializer in their own projects.
+Sarah was happy that she had found a solution to her problem and decided to share her experience with the Django community. She wrote a blog post about her use of `ChildSourceListSerializer` and how it had helped her solve her serialization problem. The post became very popular and many developers started using `ChildSourceListSerializer` in their own projects.
 
 From that day on, `ChildSourceListSerializer` became a popular tool among Django developers for customizing the serialization of child objects in a list based on their source attribute. And that's how `ChildSourceListSerializer` became a thing!
 
@@ -35,16 +35,12 @@ from django.db import models
 class Genre(models.Model):
     name = models.CharField(max_length=50)
 
-    def __str__(self):
-        return self.name
 
 class Movie(models.Model):
     title = models.CharField(max_length=255)
     year = models.IntegerField()
     genres = models.ManyToManyField(Genre)
 
-    def __str__(self):
-        return self.title
 ```
 
 ### Serializer
