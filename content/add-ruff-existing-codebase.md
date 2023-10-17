@@ -30,13 +30,13 @@ After failing so badly, I've find *the proper way™* to do it.
    - Select for which rules you want autofixes (if any), using `fixable` and `unfixable` settings
   
 ### Commit n° 2: Apply autofixes
- - Apply [autofixes](https://docs.astral.sh/ruff/configuration/#fixes) to change all your code at once.
+Apply [autofixes](https://docs.astral.sh/ruff/configuration/#fixes) to change all your code at once.
 ```bash
 ruff check . --fix
 ```
 
 ### Commit n° 3: Add noqa directives
- - Add `noqa` directives for automatically unfixable rules to already existing errors, to avoid anyone having to deal with them when modifying an existing file:
+Add `noqa` directives for automatically unfixable rules to already existing errors, to avoid anyone having to deal with them when modifying an existing file:
 ```bash
 ruff check . --add-noqa
 ```
