@@ -4,7 +4,7 @@ date: 2023-10-17T19:34:00+02:00
 type: 'post'
 layout: 'single'
 tags: ['ruff', 'linters', 'guide', 'english']
-images: ["/static/avatar-small.jpg"]
+images: ["https://enriquesoria.github.io/avatar-small.jpg"]
 draft: false
 ---
 
