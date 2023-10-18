@@ -4,6 +4,7 @@ date: 2023-10-17T19:34:00+02:00
 type: 'post'
 layout: 'single'
 tags: ['ruff', 'linters', 'guide', 'english']
+images: ["https://avatars.githubusercontent.com/u/7394684?v=4"]
 draft: false
 ---
 
