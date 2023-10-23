@@ -8,7 +8,7 @@ images: ["https://enriquesoria.github.io/avatar-small.jpg"]
 draft: false
 ---
 
-Al igual que la millor forma de representar es la duració (en temps) es [evitant gastar números màgics](constants-duracio-temps-numero-magic-ttl.md) amb `datetime.timedelta()` , també deuriem poder expresar el tamany (bits i bytes) d'un fitxer d'una forma senzilla. Per això, i com que no vaig trobar cap llibreria que m'ho permetera, vaig decidir crear-la jo.
+Al igual que la millor forma de representar es la duració (en temps) es [evitant gastar números màgics]({{< ref "constants-duracio-temps-numero-magic-ttl.md" >}}) amb `datetime.timedelta()` , també deuriem poder expresar el tamany (bits i bytes) d'un fitxer d'una forma senzilla. Per això, i com que no vaig trobar cap llibreria que m'ho permetera, vaig decidir crear-la jo.
 
 Com diria [el meme](https://twitter.com/David3141593/status/1366803872812068864): 
 
