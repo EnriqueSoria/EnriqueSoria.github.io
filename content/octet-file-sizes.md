@@ -1,5 +1,5 @@
 ---                                                                             
-title: 'Representar tamanys d'objectes sense números màgics'
+title: "Representar tamanys d'objectes sense números màgics"
 date: 2023-10-23T19:42:00+01:00
 type: 'post'
 layout: 'single'
