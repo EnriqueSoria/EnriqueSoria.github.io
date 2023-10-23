@@ -3,7 +3,7 @@ title: 'The story of how `ChildSourceListSerializer` became a thing'
 date: 2023-04-03T17:07:00+01:00
 type: 'post'
 layout: 'single'
-tags: ['drf', 'django', 'python', 'english']
+tags: ['drf', 'django', 'python', 'english', 'snippets']
 draft: false
 ---
 
