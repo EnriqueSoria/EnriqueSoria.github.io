@@ -1,10 +1,10 @@
 ---                                                                             
-title: 'Representing file sizes without magic numbers'
+title: 'Representar tamanys d'objectes sense números màgics'
 date: 2023-10-23T19:42:00+01:00
 type: 'post'
 layout: 'single'
 tags: ['refactoring', 'python', 'català']
-images: ['https://github.com/EnriqueSoria/EnriqueSoria.github.io/assets/7394684/e893e238-5d77-4f71-8f7a-d87362ce9cc7']
+images: ["[https://github.com/EnriqueSoria/EnriqueSoria.github.io/assets/7394684/e893e238-5d77-4f71-8f7a-d87362ce9cc7](https://ondemand.bannerbear.com/signedurl/D0nJ4XLedwbENRZa1x/image.jpg?modifications=W3sibmFtZSI6InJlcG8iLCJ0ZXh0IjoiRW5yaXF1ZVNvcmlhIC8gKm9jdGV0KiJ9LHsibmFtZSI6ImRlc2MiLCJ0ZXh0IjoiT2JqZWN0LW9yaWVudGVkIHdheSB0byByZXByZXNlbnQgZGlnaXRhbCBzaXplcyAoYml0cyBhbmQgYnl0ZXMpIn0seyJuYW1lIjoiYXZhdGFyNSIsImhpZGUiOnRydWV9LHsibmFtZSI6ImF2YXRhcjQiLCJoaWRlIjp0cnVlfSx7Im5hbWUiOiJhdmF0YXIzIiwiaGlkZSI6dHJ1ZX0seyJuYW1lIjoiYXZhdGFyMiIsImhpZGUiOnRydWV9LHsibmFtZSI6ImF2YXRhcjEiLCJpbWFnZV91cmwiOiJodHRwczovL2F2YXRhcnMuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3UvNzM5NDY4ND92PTQifSx7Im5hbWUiOiJjb250cmlidXRvcnMiLCJ0ZXh0IjoiRW5yaXF1ZVNvcmlhIn0seyJuYW1lIjoic3RhcnMiLCJ0ZXh0IjoiMyJ9XQ&s=d48817b83267abb307111befdbbc74f68a8f9da4055adddbbde41e42b77b4262)"]
 draft: false
 ---
 
