@@ -8,13 +8,11 @@ images: ["https://enriquesoria.github.io/avatar-small.jpg"]
 draft: false
 ---
 
-Si trabajas con precios probablemente conozcas el tipo `Decimal` de python. Esto es algo que en un trabajo como el mío (un ecommerce) es muy importante.
+Recientemente encontramos un bug en el que la confirmación de pago que nos llegó de nuestro proveedor difería por un céntimo de lo esperado. Esto nos resultó extraño ya que a través de todo nuestro proyecto trabajamos con el tipo [`Decimal`](https://docs.python.org/3/library/decimal.html) siempre que trabajamos con precios. 
 
-Recientemente encontramos un bug en el que la confirmación de pago que nos llegó de nuestro proveedor difería por un céntimo de lo esperado. Esto nos resultó extraño ya que a través de todo nuestro proyecto trabajamos con el tipo `Decimal` siempre que trabajamos con precios. 
+Pero se nos escapó en un sitio: la función [`json.loads`](https://docs.python.org/3/library/json.html#json.loads), que por defecto convierte los números en `float`s. Para solucionarlo tan solo hay que pasarle el parámetro opcional `parse_float=Decimal`:
 
-Pero se nos escapó en un sitio: la función `json.parse`, que por defecto convierte los números en `float`s. Para solucionarlo tan solo hay que pasarle el parámetro opcional `parse_float=Decimal`:
-
-```pycon
+```python
 >>> import json
 >>> data = '{"amount": 160.39}'
 >>> json.loads(data)["amount"] * 100
