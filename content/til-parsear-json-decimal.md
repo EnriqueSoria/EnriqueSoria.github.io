@@ -4,7 +4,7 @@ date: 2024-10-23T17:35:00+02:00
 type: 'post'
 layout: 'single'
 tags: ['til', 'python', 'decimal', 'spanish']
-images: ["https://github.com/user-attachments/assets/59fafd2c-5d49-4626-b338-314e0f20fcc7"]
+images: ["https://github.com/user-attachments/assets/71a50374-0ae6-43ef-bcf1-8d842c11e933"]
 draft: false
 ---
 
