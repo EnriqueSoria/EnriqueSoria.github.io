@@ -4,9 +4,11 @@ date: 2024-10-23T17:35:00+02:00
 type: 'post'
 layout: 'single'
 tags: ['til', 'python', 'decimal', 'spanish']
-images: ["https://enriquesoria.github.io/avatar-small.jpg"]
+images: ["https://github.com/user-attachments/assets/59fafd2c-5d49-4626-b338-314e0f20fcc7"]
 draft: false
 ---
+
+![An AI generated image featuring a snake with a calculator. Generated on https://deepai.org](https://github.com/user-attachments/assets/59fafd2c-5d49-4626-b338-314e0f20fcc7)
 
 Recientemente encontramos un bug en el que la confirmación de pago que nos llegó de nuestro proveedor difería por un céntimo de lo esperado. Esto nos resultó extraño ya que a través de todo nuestro proyecto trabajamos con el tipo [`Decimal`](https://docs.python.org/3/library/decimal.html) siempre que trabajamos con precios. 
 
