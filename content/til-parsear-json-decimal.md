@@ -8,8 +8,6 @@ images: ["https://github.com/user-attachments/assets/59fafd2c-5d49-4626-b338-314
 draft: false
 ---
 
-![An AI generated image featuring a snake with a calculator. Generated on https://deepai.org](https://github.com/user-attachments/assets/59fafd2c-5d49-4626-b338-314e0f20fcc7)
-
 Recientemente encontramos un bug en el que la confirmación de pago que nos llegó de nuestro proveedor difería por un céntimo de lo esperado. Esto nos resultó extraño ya que a través de todo nuestro proyecto trabajamos con el tipo [`Decimal`](https://docs.python.org/3/library/decimal.html) siempre que trabajamos con precios. 
 
 Pero se nos escapó en un sitio: la función [`json.loads`](https://docs.python.org/3/library/json.html#json.loads), que por defecto convierte los números en `float`s. Para solucionarlo tan solo hay que pasarle el parámetro opcional `parse_float=Decimal`:
