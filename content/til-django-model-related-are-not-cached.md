@@ -9,6 +9,25 @@ draft: true
 ---
 
 
+
+```pycon
+>>> order = Order.objects.first()
+>>> 
+>>> with query_debugger("without prefetch"):
+>>>     list(order.lines.all())
+>>>     list(order.lines.all())
+>>>     list(order.lines.all())
+without prefetch: 3 queries
+
+
+```
+
+
+
+
+
+
+
 Given these models:
 
 ```python
@@ -22,7 +41,7 @@ class Line(models.Model):
     order = models.ForeignKey("order.Order", on_delete=models.CASCADE, related_name="lines")
 ```
 
-and a context decorator that measures how many queries are done:
+and a context decorator that measures how many queries are done
 
 ```python
 import time
@@ -32,17 +51,25 @@ from django.db import connection
 
 
 @contextmanager
-def query_debugger(name: str = ""):
+def query_debugger(name: str):
     start_queries = len(connection.queries)
-
-    start = time.perf_counter()
     yield
-    end = time.perf_counter()
     end_queries = len(connection.queries)
     query_count = end_queries - start_queries
-    time_elapsed_in_seconds = end - start
-    msg = f"query_count={query_count} took={time_elapsed_in_seconds:.2f}s"
-    if name:
-        msg = f"{name}: {msg}"
-    print(msg)
+    print(f"{name}: {query_count} queries")
 ```
+
+and a utility function to check if an instance is prefetched:
+
+```python
+from django.db import models
+
+
+def is_prefetched(instance: models.Model, attribute_name: str) -> bool:
+    """Check if a ManyToMany is prefetched on an instance"""
+    try:
+        return attribute_name in instance._prefetched_objects_cache
+    except (AttributeError, KeyError):
+        return False
+```
+
