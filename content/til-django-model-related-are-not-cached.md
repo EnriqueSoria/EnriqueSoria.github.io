@@ -1,15 +1,15 @@
 ---                                                                             
 title: "TIL: Django relations are not cached in model instance"
-date: 2024-11-07T10:34:00+01:00
+date: 2024-11-19T19:341:00+01:00
 type: 'post'
 layout: 'single'
 tags: ['django', 'ORM', 'prefetching', 'english']
 images: ["https://enriquesoria.github.io/avatar-small.jpg"]
-draft: true
+draft: false
 ---
 
 
-
+## Evaluating relation multiple times using `.all()` performs `n` queries
 ```pycon
 >>> order = Order.objects.first()
 >>> 
@@ -19,22 +19,45 @@ draft: true
 >>>     list(order.lines.all())
 without prefetch: 3 queries
 
+```
+
+## Evaluating a related queryset stored in a variable only performs one query
+```pycon
+>>> order = Order.objects.first()
+>>> 
+>>> with query_debugger("storing related queryset in a variable"):
+>>>     lines = order.lines.all()
+>>>     list(lines)
+>>>     list(lines)
+>>>     list(lines)
+storing related queryset in a variable: 1 queries
 
 ```
 
+## Evaluating a prefetched related queryset multiple times using `.all()` doesn't perform any extra query
+```pycon
+>>> order = Order.objects.prefetch_related("lines").first()
+>>> 
+>>> with query_debugger("with prefetching"):
+>>>     list(order.lines.all())
+>>>     list(order.lines.all())
+>>>     list(order.lines.all())
+with prefetching: 0 queries
 
+```
 
+---
 
+## Models and tools used for this test
 
-
-
-Given these models:
+### Models
 
 ```python
 from django.db import models
 
 
-class Order(models.Model): ...
+class Order(models.Model):
+    pass
 
 
 class Line(models.Model):
@@ -58,18 +81,3 @@ def query_debugger(name: str):
     query_count = end_queries - start_queries
     print(f"{name}: {query_count} queries")
 ```
-
-and a utility function to check if an instance is prefetched:
-
-```python
-from django.db import models
-
-
-def is_prefetched(instance: models.Model, attribute_name: str) -> bool:
-    """Check if a ManyToMany is prefetched on an instance"""
-    try:
-        return attribute_name in instance._prefetched_objects_cache
-    except (AttributeError, KeyError):
-        return False
-```
-
