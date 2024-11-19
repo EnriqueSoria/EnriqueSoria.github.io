@@ -4,7 +4,7 @@ date: 2024-11-19T19:34:00+01:00
 type: 'post'
 layout: 'single'
 tags: ['django', 'ORM', 'prefetching', 'english']
-images: ["https://enriquesoria.github.io/avatar-small.jpg"]
+images: ["https://github.com/user-attachments/assets/de3faf89-c86d-48b4-9241-67bfa78970d3"]
 draft: false
 ---
 
