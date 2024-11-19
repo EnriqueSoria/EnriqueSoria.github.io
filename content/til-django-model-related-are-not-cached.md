@@ -1,6 +1,6 @@
 ---                                                                             
 title: "TIL: Django relations are not cached in model instance"
-date: 2024-11-19T19:341:00+01:00
+date: 2024-11-19T19:34:00+01:00
 type: 'post'
 layout: 'single'
 tags: ['django', 'ORM', 'prefetching', 'english']
