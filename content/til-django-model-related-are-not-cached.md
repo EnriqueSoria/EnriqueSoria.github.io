@@ -10,40 +10,49 @@ draft: false
 
 
 ## Evaluating relation multiple times using `.all()` performs `n` queries
-```pycon
->>> order = Order.objects.first()
->>> 
->>> with query_debugger("without prefetch"):
->>>     list(order.lines.all())
->>>     list(order.lines.all())
->>>     list(order.lines.all())
-without prefetch: 3 queries
+Input:
+```python
+order = Order.objects.first()
 
+with query_debugger("without prefetch"):
+    list(order.lines.all())
+    list(order.lines.all())
+    list(order.lines.all())
+```
+Output:
+```
+without prefetch: 3 queries
 ```
 
 ## Evaluating a related queryset stored in a variable only performs one query
-```pycon
->>> order = Order.objects.first()
->>> 
->>> with query_debugger("storing related queryset in a variable"):
->>>     lines = order.lines.all()
->>>     list(lines)
->>>     list(lines)
->>>     list(lines)
-storing related queryset in a variable: 1 queries
+Input:
+```python
+order = Order.objects.first()
 
+with query_debugger("storing related queryset in a variable"):
+    lines = order.lines.all()
+    list(lines)
+    list(lines)
+    list(lines)
+```
+Output:
+```
+storing related queryset in a variable: 1 queries
 ```
 
 ## Evaluating a prefetched related queryset multiple times using `.all()` doesn't perform any extra query
-```pycon
->>> order = Order.objects.prefetch_related("lines").first()
->>> 
->>> with query_debugger("with prefetching"):
->>>     list(order.lines.all())
->>>     list(order.lines.all())
->>>     list(order.lines.all())
-with prefetching: 0 queries
+Input:
+```python
+order = Order.objects.prefetch_related("lines").first()
 
+with query_debugger("with prefetching"):
+    list(order.lines.all())
+    list(order.lines.all())
+    list(order.lines.all())
+```
+Output:
+```
+with prefetching: 0 queries
 ```
 
 ---
