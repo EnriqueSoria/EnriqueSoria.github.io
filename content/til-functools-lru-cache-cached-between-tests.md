@@ -4,9 +4,10 @@ date: 2024-12-03T01:01:00+01:00
 type: 'post'
 layout: 'single'
 tags: ['django', 'pytest', 'cache', 'spanish']
-images: ["https://github.com/user-attachments/assets/71739e60-a9b9-4ac0-86ec-675405728a22"]
+images: ["https://github.com/user-attachments/assets/0f9e21ab-c80e-4b8f-af71-aafdaf93805b"]
 draft: false
 ---
+
 
 Asumamos que tenemos una función cacheada con `functools.lru_cache`:
 
