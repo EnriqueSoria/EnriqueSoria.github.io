@@ -47,6 +47,12 @@ def test_get_modified_database_name_after_modifying_it():
 
 Si lo ejecutamos comprobaremos que el segundo test falla, ya que devuelve el valor que tenía antes de ser modificado el `SETTINGS`. Esto es debido a que la caché `lru_cache` no se limpia entre tests. 
 
+```
+============================= short test summary info =============================
+FAILED tests/test_utils.py::test_get_modified_database_name_after_modifying_it - AssertionError: assert 'default' == 'modified'
+=========================== 1 failed, 1 passed in 0.03s ===========================
+```
+
 Si queremos limpiarla automáticamente, podríamos hacerlo de esta forma en pytest:
 
 ```python
@@ -61,4 +67,6 @@ def clean_get_setting_cache():
     get_setting.cache_clear()
 ```
 
-De esta forma, la fixture se usará automáticamente en cada test, y por tanto la caché de `get_setting` se limpiará entre tests.
+De esta forma, la fixture se usará automáticamente en cada test, y por tanto la caché de `get_setting` se limpiará entre tests. 
+
+Puedes probarlo tu mismo con [este proyecto de ejemplo](https://github.com/EnriqueSoria/test-lru-cache-is-persistent-between-tests).
