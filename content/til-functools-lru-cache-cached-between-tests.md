@@ -1,5 +1,5 @@
 ---                                                                             
-title: "TIL: La caché de functools.lru_cache se mantiene entre tests"
+title: "TIL: La caché de `functools.lru_cache` se mantiene entre tests"
 date: 2024-11-15T19:34:00+01:00
 type: 'post'
 layout: 'single'
@@ -54,7 +54,7 @@ import pytest
 
 
 @pytest.fixture(autouse=True)
-def clean_stores_cache():
+def clean_get_setting_cache():
     from utils import get_setting
 
     get_setting.cache_clear()
