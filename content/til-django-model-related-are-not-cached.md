@@ -3,7 +3,7 @@ title: "TIL: Django relations are not cached in model instance"
 date: 2024-11-19T19:34:00+01:00
 type: 'post'
 layout: 'single'
-tags: ['django', 'ORM', 'prefetching', 'english']
+tags: ['django', 'ORM', 'prefetching', 'english', 'til']
 images: ["https://github.com/user-attachments/assets/de3faf89-c86d-48b4-9241-67bfa78970d3"]
 draft: false
 ---
