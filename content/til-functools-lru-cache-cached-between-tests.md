@@ -3,7 +3,7 @@ title: "TIL: La caché de `functools.lru_cache` se mantiene entre tests"
 date: 2024-12-03T01:01:00+01:00
 type: 'post'
 layout: 'single'
-tags: ['django', 'pytest', 'cache', 'spanish']
+tags: ['django', 'pytest', 'cache', 'spanish', 'til']
 images: ["https://github.com/user-attachments/assets/0f9e21ab-c80e-4b8f-af71-aafdaf93805b"]
 draft: false
 ---
