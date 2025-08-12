@@ -51,6 +51,8 @@ class RedisConnection:
 
         return f"redis://{self.host}:{self.port}/{self.db}"
 
-
-redis_url = RedisConnection(host="localhost", port=6379, db=0).as_connection_string()
+redis_connection = RedisConnection(host="localhost", port=6379, db=0) 
+redis_url = redis_connection.as_connection_string()
 ```
+
+¿Que guanyem? Ara tenim la informació estructurada. A més a més podem afegir mètodes auxiliars i/o validació.
