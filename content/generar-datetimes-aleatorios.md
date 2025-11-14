@@ -1,8 +1,10 @@
 ---
 title: "Como generar `datetime`s aleatorios entre dos fechas"
 date: 2025-11-13T18:30:02+01:00
-draft: false
+type: 'post'
+layout: 'single'
 tags: ['python', 'spanish']
+draft: false
 ---
 
 Para el proyecto de ejemplo sobre cómo mostrar valores de un json en el admin de Django tuve la necesidad de generar datos aleatorios,
