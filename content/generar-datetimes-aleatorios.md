@@ -21,6 +21,6 @@ hechos para obtener un `datetime` aleatorio entre un punto de inicio y fin.
 ¿Cómo? Convirtiendo las fechas de inicio a fin a timestamp y generando un número aleatorio entre esos dos números. Como Python devuelve
 el timestamp como un float tenemos que usar [`random.uniform`](https://docs.python.org/3/library/random.html#random.uniform) (que funciona con `float`s) en vez de `random.randrange` (que trabaja con `int`s).
 
-<script src="https://gist.github.com/EnriqueSoria/a1482a59c64c716cc71eaefd67926325.js"></script>
+{{< gist EnriqueSoria a1482a59c64c716cc71eaefd67926325 >}}
 
 PD: Si no nos importan los milisegundos también podemos convertir los timestamps a `int` y usar `random.randrange`
