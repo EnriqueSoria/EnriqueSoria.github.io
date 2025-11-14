@@ -17,8 +17,8 @@ Una forma de representar una fecha y hora es mediante lo que se conoce como el U
 
 > Tiempo Unix o Tiempo POSIX es un sistema para la descripción de instantes de tiempo: se define como la cantidad de segundos transcurridos desde la medianoche UTC del 1 de enero de 1970, sin contar segundos intercalares.
 
-En Python podemos obtener un objeto `datetime` a partir de un timestamp usando [`datetime.fromtimestamp`](https://es.wikipedia.org/wiki/Tiempo_Unix),
-pero también podemos obtener un timestamp a partir de un `datetime` usando [`.timestamp()`](https://docs.python.org/3/library/datetime.html#datetime.datetime.timestamp), por lo que podemos usar estos dos 
+En Python podemos obtener un objeto `datetime` a partir de un timestamp usando la función [`datetime.fromtimestamp`](https://es.wikipedia.org/wiki/Tiempo_Unix),
+pero también podemos obtener un timestamp a partir de un `datetime` usando el método [`.timestamp()`](https://docs.python.org/3/library/datetime.html#datetime.datetime.timestamp), por lo que podemos usar estos dos 
 hechos para obtener un `datetime` aleatorio entre un punto de inicio y fin.
 
 ¿Cómo? Convirtiendo las fechas de inicio a fin a timestamp y generando un número aleatorio entre esos dos números. Como Python devuelve
