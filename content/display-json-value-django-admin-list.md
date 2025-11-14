@@ -4,7 +4,7 @@ date: 2025-10-22T20:30:02+02:00
 type: 'post'
 layout: 'single'
 images: ["https://enriquesoria.github.io/avatar-small.jpg"]
-tags: ['python', 'english', 'django', 'admin']
+tags: ['python', 'english', 'django', 'admin', 'mysql']
 draft: true
 ---
 
