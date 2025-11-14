@@ -1,6 +1,10 @@
 ---
 title: "How to display a JSON value in Django admin (when using MySQL)"
 date: 2025-10-22T20:30:02+02:00
+type: 'post'
+layout: 'single'
+images: ["https://enriquesoria.github.io/avatar-small.jpg"]
+tags: ['python', 'english', 'django', 'admin']
 draft: true
 ---
 
@@ -102,3 +106,7 @@ class WebhookAdmin(admin.ModelAdmin):
             )
         )
 ```
+
+<img width="1471" height="566" alt="imatge" src="https://github.com/user-attachments/assets/536b56ce-0814-41c3-b0ad-5144317e1a0d" />
+<img width="1471" height="566" alt="imatge" src="https://github.com/user-attachments/assets/2f847381-8d7a-47e3-9c8e-6f7fc5009e9f" />
+
