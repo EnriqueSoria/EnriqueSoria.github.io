@@ -8,7 +8,7 @@ tags: ['python', 'spanish']
 draft: false
 ---
 
-Para el proyecto de ejemplo sobre [cómo mostrar valores de un json en el admin de Django](https://github.com/EnriqueSoria/DisplayJsonValueInAdmin) tuve la necesidad de generar datos aleatorios,
+Para el proyecto de ejemplo sobre [cómo mostrar valores de un json en el admin de Django](https://blog.enriquesoria.com/display-json-value-django-admin-list/) tuve la necesidad de generar datos aleatorios,
 concretamente timestamps. Podría haber utilizado alguna librería especializada como [faker](https://faker.readthedocs.io/en/master/) (que tiene [un método dedicado](https://faker.readthedocs.io/en/master/providers/faker.providers.date_time.html#faker.providers.date_time.Provider.date_time_between_dates))
 pero decidí hacerlo a mano para evitar instalar una dependencia solo para eso.
 
