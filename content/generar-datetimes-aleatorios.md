@@ -3,7 +3,7 @@ title: "Cómo generar `datetime`s aleatorios entre dos fechas"
 date: 2025-11-13T18:30:02+01:00
 type: 'post'
 layout: 'single'
-images: ["https://github.com/user-attachments/assets/511141cd-962f-455b-a617-95b0b123b4f8"]
+images: ["https://enriquesoria.github.io/como-generar-datetime-s-aleatorios-entre-dos-fechas.png"]
 tags: ['python', 'spanish']
 draft: false
 ---
