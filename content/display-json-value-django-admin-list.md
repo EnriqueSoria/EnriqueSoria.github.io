@@ -9,7 +9,6 @@ draft: false
 ---
 
 
-> [!NOTE]
 > tldr; here's a small working example of this: https://github.com/EnriqueSoria/DisplayJsonValueInAdmin
 
 
