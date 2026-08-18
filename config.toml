@@ -25,6 +25,11 @@ avatar = "https://avatars.githubusercontent.com/u/7394684?v=4"
   icon = "linkedin"
   url = "https://www.linkedin.com/in/enriquesoriamagraner/"
 
+[[params.social]]
+title = "rss"
+icon = "ti-rss" # themify icon : https://themify.me/themify-icons
+link = "https://www.cgfootman.com/index.xml"
+
 [[menu.main]]
   identifier = "tags"
   name = "Tags"
