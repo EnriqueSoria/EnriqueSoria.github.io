@@ -117,7 +117,7 @@ Now we could even use this annotated `_payload_timestamp` to filter the queryset
 
 We can put all of this together into a single, reusable, piece of code:
 
-{{< gist EnriqueSoria ff09cdfe007a0380add58d9331b7523d >}}
+{{< embed-gist EnriqueSoria ff09cdfe007a0380add58d9331b7523d >}}
 
 ...and our admin code would look like this:
 ```python

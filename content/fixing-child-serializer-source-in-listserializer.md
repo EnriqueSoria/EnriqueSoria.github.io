@@ -23,7 +23,7 @@ From that day on, `ChildSourceListSerializer` became a popular tool among Django
 
 ## The `ChildSourceListSerializer` code
 
-{{< gist EnriqueSoria eaffaae1687db592e3f9f60baed3bd11 >}}
+{{< embed-gist EnriqueSoria eaffaae1687db592e3f9f60baed3bd11 >}}
 
 
 ## The example
