@@ -25,13 +25,15 @@ avatar = "https://avatars.githubusercontent.com/u/7394684?v=4"
   icon = "linkedin"
   url = "https://www.linkedin.com/in/enriquesoriamagraner/"
 
-[[params.social]]
-title = "rss"
-icon = "ti-rss" # themify icon : https://themify.me/themify-icons
-link = "https://blog.enriquesoria.com//index.xml"
+
+[[menu.main]]
+  identifier = "rss"
+  name = "RSS"
+  url = "/index.xml"
 
 [[menu.main]]
   identifier = "tags"
   name = "Tags"
   url = "/tags/"
+
 
